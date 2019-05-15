@@ -6,7 +6,46 @@ const app = express();
 app.use(express.json());
 
 /// YOUR ROUTES GO HERE!
+// GET for getting existing item
+app.get('/api/mongodb/projectname/', (request, response) => {
+  const collectionName = request.params.collectionName;
 
+  // Get GET params, if there are any
+  const query = request.query || {};
+
+  // Due to a requirement of MongoDB, whenever we query based on _id field, we
+  // have to do it like this using ObjectId
+  if (query._id) {
+    query._id = ObjectId(query._id);
+  }
+
+  db.collection(collectionName)
+    .find(query)
+    .toArray((err, results) => {
+      // Got data back.. send to client
+      if (err) throw err;
+      response.json(results);
+    });
+});
+
+// POST for creating a new Project
+app.post('/api/mongodb/newproject/', (request, response) => {
+  // const collectionName = request.params.collectionName;
+  const collectionName = 'testCollectionb';
+  // const data = request.body;
+  
+  console.log('api post invoked:', collectionName);
+  db.collection(collectionName)
+    .insert(data, (err, results) => {
+      // Got data back.. send to client
+      if (err) throw err;
+
+      response.json({
+        'success': true,
+        'results': results,
+      });
+    });
+});
 
 /////////////////////////////////////////////
 
