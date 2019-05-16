@@ -6,6 +6,7 @@ import './App.css';
 import LandingPage from './components/pages/LandingPage/LandingPage.js';
 import Blog from './components/pages/Blog/Blog.js';
 import WriteArticle from './components/pages/WriteArticle/WriteArticle.js';
+import Project from './components/pages/Project/Project.js';
 
 let projects = 
     {
@@ -71,6 +72,7 @@ class App extends Component {
           <Link to="/">Welcome</Link>
           <Link to="/blog/">Blog</Link>
           <Link to="/write/">Write Article</Link>
+          <Link to="/project/">View Project</Link>
         </nav>
 
         <div className="App-mainContent">
@@ -78,6 +80,7 @@ class App extends Component {
             <Route exact path='/' component={LandingPage} />
             <Route exact path='/blog/' component={Blog} />
             <Route exact path='/write/' component={WriteArticle} />
+            <Route exact path='/project/' component={Project} />
           </Switch>
         </div>
 
