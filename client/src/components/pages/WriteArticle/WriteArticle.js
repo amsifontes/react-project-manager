@@ -21,21 +21,26 @@ class WriteArticle extends Component {
 
   submit = () => {
     const formData = {
-      title: this.state.title,
-      text: this.state.text,
+      // title: this.state.title,
+      // text: this.state.text,
+      project_name: "Project Name",
+      project_start: 1,
+      project_end: "2",
     };
-
-    fetch('/api/mongodb/blogposts/', {
+    console.log('submit invoked');
+    fetch('/api/mongodb/newproject/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData),
+        // collectionName: 'testCollection',
       })
-      .then(response => response.json())
+      .then(data => console.log(data))
+      // .then(response => response.json())
       .then(data => {
         console.log('Got this back', data);
 
         // Redirect to blog
-        this.props.history.push('/blog/');
+        // this.props.history.push('/blog/');
       });
   }
 

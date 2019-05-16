@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link, Switch, Route } from 'react-router-dom'
 
 import './App.css';
+// var config = require('./.env.local');
+// console.log(config);
 
 import LandingPage from './components/pages/LandingPage/LandingPage.js';
 import Blog from './components/pages/Blog/Blog.js';
