@@ -5,6 +5,10 @@ class WriteArticle extends Component {
   state = {
     title: '',
     text: '',
+    project_name: "Project Name",
+    project_start: 1,
+    project_end: "2",
+    collection: "NewMongoCollection",
   }
 
   onChangeContent = (ev) => {
@@ -42,7 +46,15 @@ class WriteArticle extends Component {
         // Redirect to blog
         // this.props.history.push('/blog/');
       });
-  }
+      // .then(data => console.log(data))
+      // // .then(response => response.json())
+      // .then(data => {
+      //   console.log('Got this back', data);
+
+      //   // Redirect to blog
+      //   // this.props.history.push('/blog/');
+      // });
+  };
 
 
   render() {

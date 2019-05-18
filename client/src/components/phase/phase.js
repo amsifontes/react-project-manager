@@ -1,4 +1,4 @@
-port React, { Component } from 'react';
+import React, { Component } from 'react';
 import './Phase.css';
 
 class Phase extends Component {

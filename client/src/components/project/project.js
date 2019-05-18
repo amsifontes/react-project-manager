@@ -1,4 +1,4 @@
-port React, { Component } from 'react';
+import React, { Component } from 'react';
 import './Project.css';
 import Phase from '../Phase/Phase.js';
 
