@@ -17,6 +17,37 @@ app.use(express.json());
 
 /// YOUR ROUTES GO HERE!
 
+  db.collection(collectionName)
+    .find(query)
+    .toArray((err, results) => {
+      // Got data back.. send to client
+      if (err) throw err;
+      response.json(results);
+    });
+});
+
+// POST for creating a new Project
+app.post('/api/mongodb/newproject/', (request, response) => {
+  // const collectionName = db.collection(request.params.collectionName);
+  // const collectionName = 'testCollection_gantt_v1';
+  const data = request.body;
+  const collectionNameparam = request.params.collectionName;
+  const collectionNamereq = request.collectionName;
+  const collectionNamehc = "ProjectDetails";
+  console.log('api post invoked:', collectionNameparam);
+  console.log(collectionNamereq);
+  console.log(collectionNamehc);
+  console.log(data);
+  var collect = db.collection(collectionNamehc)
+  collect.insertOne(data, (err, results) => {
+      if (err) throw err;
+
+      response.json({
+        'success': true,
+        'results': results,
+      });
+  });
+});
 
 /////////////////////////////////////////////
 
