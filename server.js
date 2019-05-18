@@ -5,16 +5,6 @@ const ObjectId = require('mongodb').ObjectId;
 const app = express();
 app.use(express.json());
 
-
-/////////////////////////////////////////////
-// Configuration
-// NOTE: You will need to change this to use M Labs.
-// Try this with one you did for activity 1.
-//const MONGODB_URL = 'mongodb://kcuser:mongoerrday1@ds219432.mlab.com:19432/kcsandbox';
-//const MONGODB_DATABASE = 'classactivity';
-//const PORT = 3000;
-/////////////////////////////////////////////
-
 /// YOUR ROUTES GO HERE!
 // GET for getting existing item
 app.get('/api/mongodb/projectname/', (request, response) => {
