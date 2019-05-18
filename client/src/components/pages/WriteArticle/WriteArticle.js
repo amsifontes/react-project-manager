@@ -23,6 +23,39 @@ class WriteArticle extends Component {
     });
   }
 
+  changedsubmit = () => {
+    const formData = {
+      // title: this.state.title,
+      // text: this.state.text,
+      project_name: "Project Name",
+      project_start: 1,
+      project_end: "2",
+    };
+    console.log('submit invoked');
+    fetch('/api/mongodb/newproject/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData),
+        // collectionName: 'testCollection',
+      })
+      //.then(data => console.log(data))
+      .then(response => response.json())
+      .then(data => {
+        console.log('Got this back', data);
+        // Redirect to blog
+        // this.props.history.push('/blog/');
+      });
+      // .then(data => console.log(data))
+      // // .then(response => response.json())
+      // .then(data => {
+      //   console.log('Got this back', data);
+
+      //   // Redirect to blog
+      //   // this.props.history.push('/blog/');
+      // });
+  };
+
+
   submit = () => {
     const formData = {
       title: this.state.title,
@@ -37,18 +70,12 @@ class WriteArticle extends Component {
       .then(response => response.json())
       .then(data => {
         console.log('Got this back', data);
+
         // Redirect to blog
         this.props.history.push('/blog/');
       });
-      // .then(data => console.log(data))
-      // // .then(response => response.json())
-      // .then(data => {
-      //   console.log('Got this back', data);
+  }
 
-      //   // Redirect to blog
-      //   // this.props.history.push('/blog/');
-      // });
-  };
 
 
   render() {
