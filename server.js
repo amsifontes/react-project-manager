@@ -16,6 +16,18 @@ app.use(express.json());
 /////////////////////////////////////////////
 
 /// YOUR ROUTES GO HERE!
+// GET for getting existing item
+app.get('/api/mongodb/projectname/', (request, response) => {
+  const collectionName = request.params.collectionName;
+
+  // Get GET params, if there are any
+  const query = request.query || {};
+
+  // Due to a requirement of MongoDB, whenever we query based on _id field, we
+  // have to do it like this using ObjectId
+  if (query._id) {
+    query._id = ObjectId(query._id);
+  }
 
   db.collection(collectionName)
     .find(query)
@@ -28,25 +40,22 @@ app.use(express.json());
 
 // POST for creating a new Project
 app.post('/api/mongodb/newproject/', (request, response) => {
-  // const collectionName = db.collection(request.params.collectionName);
-  // const collectionName = 'testCollection_gantt_v1';
-  const data = request.body;
-  const collectionNameparam = request.params.collectionName;
-  const collectionNamereq = request.collectionName;
-  const collectionNamehc = "ProjectDetails";
-  console.log('api post invoked:', collectionNameparam);
-  console.log(collectionNamereq);
-  console.log(collectionNamehc);
-  console.log(data);
-  var collect = db.collection(collectionNamehc)
-  collect.insertOne(data, (err, results) => {
+  // const collectionName = request.params.collectionName;
+  const collectionName = 'testCollectionb';
+  // const data = request.body;
+  
+  console.log('api post invoked:', collectionName);
+  db.collection(collectionName)
+    .insert(data, (err, results) => {
+      // Got data back.. send to client
       if (err) throw err;
 
       response.json({
         'success': true,
         'results': results,
       });
-  });
+
+    });
 });
 
 /////////////////////////////////////////////
