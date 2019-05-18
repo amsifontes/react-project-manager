@@ -37,7 +37,6 @@ class WriteArticle extends Component {
       .then(response => response.json())
       .then(data => {
         console.log('Got this back', data);
-
         // Redirect to blog
         this.props.history.push('/blog/');
       });
