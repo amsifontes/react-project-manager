@@ -23,7 +23,7 @@ class WriteArticle extends Component {
     });
   }
 
-  submit = () => {
+  changedsubmit = () => {
     const formData = {
       // title: this.state.title,
       // text: this.state.text,
@@ -38,8 +38,8 @@ class WriteArticle extends Component {
         body: JSON.stringify(formData),
         // collectionName: 'testCollection',
       })
-      .then(data => console.log(data))
-      // .then(response => response.json())
+      //.then(data => console.log(data))
+      .then(response => response.json())
       .then(data => {
         console.log('Got this back', data);
 
@@ -55,6 +55,28 @@ class WriteArticle extends Component {
       //   // this.props.history.push('/blog/');
       // });
   };
+
+
+  submit = () => {
+    const formData = {
+      title: this.state.title,
+      text: this.state.text,
+    };
+
+    fetch('/api/mongodb/blogposts/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Got this back', data);
+
+        // Redirect to blog
+        this.props.history.push('/blog/');
+      });
+  }
+
 
 
   render() {

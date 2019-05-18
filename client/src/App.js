@@ -10,59 +10,183 @@ import Blog from './components/pages/Blog/Blog.js';
 import WriteArticle from './components/pages/WriteArticle/WriteArticle.js';
 import Dashboard from './components/pages/Dashboard/Dashboard.js';
 
-let projects = 
+let projects = [
     {
-      "name": "Lincoln Avenue House",
-      "address": "22 Lincoln Avenue",
-      "phases": {
-          "3": 6, 
-          "6": 13, 
-          "13": 15,
-          "15": 18,
-          "18": 26,
-          "26": 29
-      },
-      "name": "Hugo Street ADU",
-      "address": "5039 Hugo Street",
-      "phases": {
-          "1": 5, 
-          "5": 11, 
-          "11": 15,
-          "15": 17,
-          "17": 22,
-          "22": 25
-      },
-      "name": "San Pablo Blvd ADU",
-      "address": "5904 San Pablo Blvd",
-      "phases": {
-          "6": 8, 
-          "8": 12, 
-          "12": 15,
-          "15": 19,
-          "19": 25,
-          "25": 30
-      },
-      "name": "Russell Avenue ADU",
-      "address": "30 Russell Avenue",
-      "phases": {
-          "2": 7, 
-          "7": 12, 
-          "12": 15,
-          "15": 19,
-          "19": 25,
-          "25": 30
-      },      
-      "name": "Berkeley ADU",
-      "address": "26 Berkeley Avenue",
-      "phases": {
-          "3": 8, 
-          "8": 9, 
-          "9": 12,
-          "12": 19,
-          "19": 23,
-          "23": 28
-      }      
+      projectName: "Lincoln Avenue House",
+      phases: [
+        {
+          phaseName: "Programming",
+          phaseStart: 3,
+          phaseEnd: 6
+        },
+        {
+          phaseName: "Schematic Design",
+          phaseStart: 6,
+          phaseEnd: 13
+        },
+        {
+          phaseName: "Design Development",
+          phaseStart: 13,
+          phaseEnd: 15
+        },
+        {
+          phaseName: "Construction Documents",
+          phaseStart: 15,
+          phaseEnd: 18
+        },
+        {
+          phaseName: "Bidding",
+          phaseStart: 18,
+          phaseEnd: 26
+        },
+        {
+          phaseName: "Construction Administration",
+          phaseStart: 26,
+          phaseEnd: 29
+        },
+      ],
+    },
+    {
+      projectName: "Hugo Street ADU",
+      phases: [
+        {
+          phaseName: "Programming",
+          phaseStart: 1,
+          phaseEnd: 5
+        },
+        {
+          phaseName: "Schematic Design",
+          phaseStart: 5,
+          phaseEnd: 11
+        },
+        {
+          phaseName: "Design Development",
+          phaseStart: 11,
+          phaseEnd: 15
+        },
+        {
+          phaseName: "Construction Documents",
+          phaseStart: 15,
+          phaseEnd: 17
+        },
+        {
+          phaseName: "Bidding",
+          phaseStart: 17,
+          phaseEnd: 22
+        },
+        {
+          phaseName: "Construction Administration",
+          phaseStart: 22,
+          phaseEnd: 25
+        },
+      ],
+    },
+    {
+      projectName: "San Pablo Blvd ADU",
+      phases: [
+        {
+          phaseName: "Programming",
+          phaseStart: 6,
+          phaseEnd: 8
+        },
+        {
+          phaseName: "Schematic Design",
+          phaseStart: 8,
+          phaseEnd: 12
+        },
+        {
+          phaseName: "Design Development",
+          phaseStart: 12,
+          phaseEnd: 15
+        },
+        {
+          phaseName: "Construction Documents",
+          phaseStart: 15,
+          phaseEnd: 19
+        },
+        {
+          phaseName: "Bidding",
+          phaseStart: 19,
+          phaseEnd: 25
+        },
+        {
+          phaseName: "Construction Administration",
+          phaseStart: 25,
+          phaseEnd: 30
+        },
+      ],
+    },
+    {
+      projectName: "Russell Avenue ADU",
+      phases: [
+        {
+          phaseName: "Programming",
+          phaseStart: 2,
+          phaseEnd: 7
+        },
+        {
+          phaseName: "Schematic Design",
+          phaseStart: 7,
+          phaseEnd: 12
+        },
+        {
+          phaseName: "Design Development",
+          phaseStart: 12,
+          phaseEnd: 15
+        },
+        {
+          phaseName: "Construction Documents",
+          phaseStart: 15,
+          phaseEnd: 19
+        },
+        {
+          phaseName: "Bidding",
+          phaseStart: 19,
+          phaseEnd: 25
+        },
+        {
+          phaseName: "Construction Administration",
+          phaseStart: 25,
+          phaseEnd: 30
+        },
+      ],
+    },
+    {
+      projectName: "Berkeley ADU",
+      phases: [
+        {
+          phaseName: "Programming",
+          phaseStart: 3,
+          phaseEnd: 8
+        },
+        {
+          phaseName: "Schematic Design",
+          phaseStart: 8,
+          phaseEnd: 9
+        },
+        {
+          phaseName: "Design Development",
+          phaseStart: 9,
+          phaseEnd: 12
+        },
+        {
+          phaseName: "Construction Documents",
+          phaseStart: 12,
+          phaseEnd: 19
+        },
+        {
+          phaseName: "Bidding",
+          phaseStart: 19,
+          phaseEnd: 23
+        },
+        {
+          phaseName: "Construction Administration",
+          phaseStart: 23,
+          phaseEnd: 38
+        },
+      ],
     }
+  ]     
 
 
 class App extends Component {
