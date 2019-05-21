@@ -27,12 +27,13 @@ class WriteArticle extends Component {
     const formData = {
       // title: this.state.title,
       // text: this.state.text,
+      //this.state,
       project_name: "Project Name",
       project_start: 1,
       project_end: "2",
     };
     console.log('submit invoked');
-    fetch('/api/mongodb/newproject/', {
+    fetch('/api/mongodb/blogpost/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData),
@@ -60,6 +61,7 @@ class WriteArticle extends Component {
     const formData = {
       title: this.state.title,
       text: this.state.text,
+      state: this.state
     };
 
     fetch('/api/mongodb/blogposts/', {

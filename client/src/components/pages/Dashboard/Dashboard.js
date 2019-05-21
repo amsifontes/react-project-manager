@@ -180,8 +180,97 @@ class Dashboard extends Component {
             },
           ],
         }
-      ]     
-    }
+      ],     
+
+  }
+  onChangeProject = (ev) => {
+    this.setState({
+      projectName: ev.target.value
+   });
+  }
+
+  onChangeEnd1 = (ev) => {
+    this.setState({
+      phaseEnd1: ev.target.value
+    });
+  }
+  onChangeEnd2 = (ev) => {
+    this.setState({
+      phaseEnd2: ev.target.value,
+    });
+  }
+  onChangeEnd3 = (ev) => {
+    this.setState({
+      phaseEnd3: ev.target.value
+    });
+  }
+  onChangeEnd4 = (ev) => {
+    this.setState({
+      phaseEnd4: ev.target.value,
+    });
+  }
+
+  onChangeStart1 = (ev) => {
+    this.setState({
+      phaseStart1: ev.target.value
+    });
+  }
+  onChangeStart2 = (ev) => {
+    this.setState({
+      phaseStart2: ev.target.value
+    });
+  }
+  onChangeStart3 = (ev) => {
+    this.setState({
+      phaseStart3: ev.target.value
+    });
+  }
+  onChangeStart4 = (ev) => {
+    this.setState({
+      phaseStart4: ev.target.value
+    });
+  }
+
+
+
+  submit = () => {
+    const formData = {
+          projectName: this.state.projectName,
+          phases: [
+            { phaseName: "Schematic Design",
+              phaseStart: "phaseStart1",
+              phaseEnd: "phaseEnd1"
+            },
+            {
+              phaseName: "Design Development",
+              phaseStart: "phaseStart2",
+              phaseEnd: "phaseEnd2"
+            },
+            { phaseName: "Construction Documents",
+              phaseStart: "phaseStart3",
+              phaseEnd: "phaseEnd3"
+            },
+            { phaseName: "Construction Administration",
+              phaseStart: "phaseStart4",
+              phaseEnd: "phaseEnd4"
+            }],
+
+      state: this.state
+    };
+
+    fetch('/api/mongodb/ProjectDetails/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Got this back', data);
+
+        // Redirect to blog
+        this.props.history.push('/dashboard/');
+      });
+  };
 
 
   render() {
@@ -266,11 +355,22 @@ class Dashboard extends Component {
     <h2 className="projectTitle">Add/Edit Project</h2>
 
     <div className="projectDetails">
-      <label>Project Name</label><input></input>
-      <label>Project Start Date</label><input></input>
-      <label>Project End Date</label><input></input>
-      <button>Save</button>
+      <label>Project Name</label><input value={this.state.projectName} onChange={this.onChangeProject} ></input>  
+      <label>Schematic Design</label><br></br>
+      <label>Phase Start Date</label><input value={this.state.start1}  onChange={this.onChangeStart1}></input>
+      <label>Phase End Date</label><input value={this.state.end1}  onChange={this.onChangeEnd1}></input>
+      <label>Design Documents</label><br></br>
+      <label>Phase Start Date</label><input value={this.state.start2}  onChange={this.onChangeStart2}></input>
+      <label>Phase End Date</label><input value={this.state.end2}  onChange={this.onChangeEnd2}></input>     
+      <label>Construction Documents</label><br></br>
+      <label>Phase Start Date</label><input value={this.state.start3}  onChange={this.onChangeStart3}></input>
+      <label>Phase End Date</label><input value={this.state.end3}  onChange={this.onChangeEnd3}></input>
+      <label>Construction Administration</label><br></br>
+      <label>Phase Start Date</label><input value={this.state.start4}  onChange={this.onChangeStart4}></input>
+      <label>Phase End Date</label><input value={this.state.end4}  onChange={this.onChangeEnd4}></input>
+      <button onClick={this.submit}>Save</button>
     </div>
+
     </div>  
 
 
