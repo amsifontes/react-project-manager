@@ -180,7 +180,7 @@ class Dashboard extends Component {
             },
           ],
         }
-      ],     
+      ],
 
   }
   onChangeProject = (ev) => {
@@ -302,7 +302,7 @@ class Dashboard extends Component {
             </span>
           </div>
 
-          
+
           <div className="project">
             <div className="projectName" style={{display: 'inline-block'}}> Project 2 Name</div>
             <span className="phases">
@@ -312,7 +312,7 @@ class Dashboard extends Component {
               <div className="phase" style={{backgroundColor: 'red', width: '125px', height: '15px', display: 'inline-block'}}> </div>
             </span>
           </div>
-          
+
           <div className="project">
             <div className="projectName" style={{display: 'inline-block'}}> Project 3 Name</div>
             <span className="phases">
@@ -323,13 +323,7 @@ class Dashboard extends Component {
             </span>
           </div>
         </div>
-          
-
-        <br />
-        <br />
-        <hr />
-        <br />
-        <br />
+{/*
     <div className="container">
 
       <div className="column1">
@@ -351,17 +345,17 @@ class Dashboard extends Component {
       </div>
 
     </div>
-
+*/}
     <h2 className="projectTitle">Add/Edit Project</h2>
 
     <div className="projectDetails">
-      <label>Project Name</label><input value={this.state.projectName} onChange={this.onChangeProject} ></input>  
+      <label>Project Name</label><input value={this.state.projectName} onChange={this.onChangeProject} ></input>
       <label>Schematic Design</label><br></br>
       <label>Phase Start Date</label><input value={this.state.start1}  onChange={this.onChangeStart1}></input>
       <label>Phase End Date</label><input value={this.state.end1}  onChange={this.onChangeEnd1}></input>
       <label>Design Documents</label><br></br>
       <label>Phase Start Date</label><input value={this.state.start2}  onChange={this.onChangeStart2}></input>
-      <label>Phase End Date</label><input value={this.state.end2}  onChange={this.onChangeEnd2}></input>     
+      <label>Phase End Date</label><input value={this.state.end2}  onChange={this.onChangeEnd2}></input>
       <label>Construction Documents</label><br></br>
       <label>Phase Start Date</label><input value={this.state.start3}  onChange={this.onChangeStart3}></input>
       <label>Phase End Date</label><input value={this.state.end3}  onChange={this.onChangeEnd3}></input>
@@ -371,7 +365,7 @@ class Dashboard extends Component {
       <button onClick={this.submit}>Save</button>
     </div>
 
-    </div>  
+    </div>
 
 
 
