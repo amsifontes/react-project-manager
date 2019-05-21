@@ -364,11 +364,7 @@ class Dashboard extends Component {
       <label>Phase End Date</label><input value={this.state.end4}  onChange={this.onChangeEnd4}></input>
       <button onClick={this.submit}>Save</button>
     </div>
-
     </div>
-
-
-
     );
   }
 }

@@ -1,5 +1,5 @@
 .App {
-    background-image: url(patrick-tomasso-208114-unsplash.jpg);
+    background-image: url(kupono-kuwamura-508400-unsplash.jpg);
     background-size: cover;
     opacity: 0.88;
     min-height: 100vh;
@@ -9,12 +9,12 @@
     grid-row-gap: 10px;
     grid-column-gap: 10px;
     align-items: stretch;
-    color: #dddbde;
+    color: darkblue;
 }
 
 .App-navigation {
     padding: 10px;
-    color: #394a5a;
+    color: darkblue;
 }
 
 .App-sidebar {
@@ -46,7 +46,7 @@
 .App-navigation a {
     font-size: 14pt;
     text-decoration: none;
-    color: #394a5a;
+    color: darkblue;
     font-weight: bold;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset;
 }
