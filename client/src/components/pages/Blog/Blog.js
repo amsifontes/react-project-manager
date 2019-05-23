@@ -32,9 +32,10 @@ class Blog extends Component {
       .then(response => response.json())
       .then(data => {
         console.log('Got this back', data);
+        
 
         // Call method to refresh data
-        this.fetchPosts();
+        // this.fetchPosts();
       });
   }
 
@@ -64,7 +65,7 @@ class Blog extends Component {
         console.log('Got this back', data);
 
         // Call method to refresh data
-        this.fetchPosts();
+        // this.fetchPosts();
       });
   }
 
