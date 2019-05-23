@@ -287,9 +287,9 @@ class Dashboard extends Component {
             <div className="projectName" style={{display: 'inline-block', width: '200px'}}> Project 1 Name</div>
             <span className="phases">
               <div className="phase" style={{width: '100px', height: '15px', display: 'inline-block'}}> </div>
-              <div className="phase" style={{backgroundColor: 'blue', width: '200px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: 'yellow', width: '75px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: 'red', width: '125px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#505cfd', width: '200px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#007bff', width: '75px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#ffc107', width: '125px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
             </span>
           </div>
 
@@ -298,9 +298,9 @@ class Dashboard extends Component {
             <div className="projectName" style={{display: 'inline-block'}}> Project 2 Name</div>
             <span className="phases">
               <div className="phase" style={{width: '100px', height: '15px', display: 'inline-block'}}> </div>
-              <div className="phase" style={{backgroundColor: 'blue', width: '200px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: 'yellow', width: '75px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: 'red', width: '125px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#505cfd', width: '200px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#007bff', width: '75px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#ffc107', width: '125px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
             </span>
           </div>
 
@@ -308,9 +308,9 @@ class Dashboard extends Component {
             <div className="projectName" style={{display: 'inline-block'}}> Project 3 Name</div>
             <span className="phases">
               <div className="phase" style={{width: '100px', height: '15px', display: 'inline-block'}}> </div>
-              <div className="phase" style={{backgroundColor: 'blue', width: '200px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: 'yellow', width: '75px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: 'red', width: '125px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#505cfd', width: '200px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#007bff', width: '75px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
+              <div className="phase" style={{backgroundColor: '#ffc107', width: '125px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
             </span>
           </div>
         </div>
@@ -361,8 +361,6 @@ class Dashboard extends Component {
     </div>
 
     </div>
-
-
 
     );
   }
