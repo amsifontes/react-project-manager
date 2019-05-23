@@ -64,7 +64,7 @@ class Dashboard extends Component {
 
       ],
     },
-    projects: [],     
+    projects: [],
   }
   onChangeProject = (ev) => {
     console.log(ev.target.value);
@@ -210,11 +210,11 @@ class Dashboard extends Component {
           {
             this.state.projects.map((project, index) => (
               <div className="project">
-                <div key={index} 
-                  className="projectName"  
-                  style={{display: 'inline-block', width: '200px'}}> 
-                    Project name: {project.projectName} 
-                    index: {index} 
+                <div key={index}
+                  className="projectName"
+                  style={{display: 'inline-block', width: '200px'}}>
+                    Project name: {project.projectName}
+                    index: {index}
                     {/* {homes.map(home => <div>{home.name}</div>)} */}
                     {/* <button onClick={() => this.onChooseKeeper(index)}>Choose</button> */}
                 </div>
@@ -229,14 +229,14 @@ class Dashboard extends Component {
                     if (index === 0) {
                       const start = (phase.phaseStart * 15) + 'px';
                       return(
-                        <div className="phase" 
+                        <div className="phase"
                           style={{
-                            backgroundColor: color, 
-                            width: width, 
-                            height: '15px', 
-                            display: 'inline-block', 
-                            margin: '2px', 
-                            marginLeft: start, 
+                            backgroundColor: color,
+                            width: width,
+                            height: '15px',
+                            display: 'inline-block',
+                            margin: '2px',
+                            marginLeft: start,
                             borderRadius: '8px'}}>
                         </div>
                       )
@@ -244,21 +244,21 @@ class Dashboard extends Component {
                       const start = phase.phaseStart - project.phases[index-1].phaseEnd;
                       console.log('else clause invoked, start:', start)
                     return(
-                      <div className="phase" 
+                      <div className="phase"
                         style={{
-                          backgroundColor: color, 
-                          width: width, 
-                          height: '15px', 
-                          display: 'inline-block', 
-                          margin: '2px', 
-                          marginLeft: start, 
+                          backgroundColor: color,
+                          width: width,
+                          height: '15px',
+                          display: 'inline-block',
+                          margin: '2px',
+                          marginLeft: start,
                           borderRadius: '8px'}}>
                       </div>
                     )}
 
                   }
                 )}
-               </div> 
+               </div>
             ))
           }
         </div>
@@ -293,7 +293,7 @@ class Dashboard extends Component {
             </span>
           </div>
 
-          
+
           <div className="project">
             <div className="projectName" style={{display: 'inline-block'}}> Project 2 Name</div>
             <span className="phases">
@@ -303,7 +303,7 @@ class Dashboard extends Component {
               <div className="phase" style={{backgroundColor: 'red', width: '125px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
             </span>
           </div>
-          
+
           <div className="project">
             <div className="projectName" style={{display: 'inline-block'}}> Project 3 Name</div>
             <span className="phases">
@@ -314,7 +314,7 @@ class Dashboard extends Component {
             </span>
           </div>
         </div>
-          
+
 
         <br />
 
@@ -323,36 +323,44 @@ class Dashboard extends Component {
 
     <div className="projectDetails">
       <label>Project Name</label>
-      <input 
+      <input
         placeholder="Placeholder text"
-        value={this.state.tempProject.projectName} 
+        value={this.state.tempProject.projectName}
         onChange={this.onChangeProject}
          >
-      </input>  
-      <label>Schematic Design</label><br></br>
-        <label>Phase Start Date</label>
-          <input value={this.state.tempProject.phases[0].phaseStart} onChange={this.onChangeStart1}></input>
-        <label>Phase End Date</label>
-          <input value={this.state.tempProject.phases[0].phaseEnd} onChange={this.onChangeEnd1}></input>
-      <label>Design Documents</label><br></br>
-        <label>Phase Start Date</label>
-          <input value={this.state.tempProject.phases[1].phaseStart} onChange={this.onChangeStart2}></input>
-        <label>Phase End Date</label>
-          <input value={this.state.tempProject.phases[1].phaseEnd} onChange={this.onChangeEnd2}></input>     
-      <label>Construction Documents</label><br></br>
-        <label>Phase Start Date</label>
-          <input value={this.state.tempProject.phases[2].phaseStart} onChange={this.onChangeStart3}></input>
-        <label>Phase End Date</label>
-          <input value={this.state.tempProject.phases[2].phaseEnd} onChange={this.onChangeEnd3}></input>
-      <label>Construction Administration</label><br></br>
-        <label>Phase Start Date</label>
-          <input value={this.state.tempProject.phases[3].phaseStart} onChange={this.onChangeStart4}></input>
-        <label>Phase End Date</label>
-          <input value={this.state.tempProject.phases[3].phaseEnd} onChange={this.onChangeEnd4}></input>
+      </input>
+      <div className="col1">
+      <p>Schematic Design</p>
+        <label>Phase Start Date</label><br/>
+          <input value={this.state.tempProject.phases[0].phaseStart} onChange={this.onChangeStart1}></input><br/>
+        <label>Phase End Date</label><br/>
+          <input value={this.state.tempProject.phases[0].phaseEnd} onChange={this.onChangeEnd1}></input><br/>
+      </div>
+      <div className="col2">
+        <p>Design Documents</p>
+          <label>Phase Start Date</label><br/>
+            <input value={this.state.tempProject.phases[1].phaseStart} onChange={this.onChangeStart2}></input><br/>
+          <label>Phase End Date</label><br/>
+            <input value={this.state.tempProject.phases[1].phaseEnd} onChange={this.onChangeEnd2}></input><br/>
+      </div>
+      <div className="col3">
+        <p>Construction Documents</p>
+          <label>Phase Start Date</label><br/>
+            <input value={this.state.tempProject.phases[2].phaseStart} onChange={this.onChangeStart3}></input><br/>
+          <label>Phase End Date</label><br/>
+            <input value={this.state.tempProject.phases[2].phaseEnd} onChange={this.onChangeEnd3}></input><br/>
+      </div>
+      <div className="col4">
+      <p>Construction Administration</p>
+        <label>Phase Start Date</label><br/>
+          <input value={this.state.tempProject.phases[3].phaseStart} onChange={this.onChangeStart4}></input><br/>
+        <label>Phase End Date</label><br/>
+          <input value={this.state.tempProject.phases[3].phaseEnd} onChange={this.onChangeEnd4}></input><br/>
+      </div>
       <button onClick={this.submit}>Save</button>
     </div>
 
-    </div>  
+    </div>
 
 
 
