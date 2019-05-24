@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './Dashboard.css';
 class Dashboard extends Component {
   state = {
+
     tempProject: {
       projectName: "Project Name",
       phases: [
@@ -174,12 +175,12 @@ class Dashboard extends Component {
   }
 
   submit = () => {
-    let tempProjectObject = this.state.tempProject;
+    let tempProjectObject = JSON.parse(JSON.stringify(this.state.tempProject));
     this.state.projects.push(tempProjectObject);
     const formData = {
       projects: this.state.projects,
     };
-    console.log('Sending:', formData);
+    // console.log('Sending:', formData);
 
     this.setState({
       tempProject: this.state.baseState,
@@ -187,14 +188,30 @@ class Dashboard extends Component {
     fetch('/api/mongodb/ProjectDetails/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(formData),
+        // body: JSON.stringify(formData),
+        body: JSON.stringify(tempProjectObject),
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Got this back', data);
+        console.log('Got this back on POST', data);
 
         // Redirect?
         this.props.history.push('/dashboard/');
+      });
+
+    fetch('/api/mongodb/ProjectDetails/', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        // body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Got this back on GET', data);
+        this.setState({
+          projects: data
+        })
+        // Redirect?
+        // this.props.history.push('/dashboard/');
       });
   };
 
