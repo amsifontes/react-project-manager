@@ -9,6 +9,7 @@
     align-items: stretch;
     color: darkblue;
     background-size: cover;
+    min-height: 100vh;
 }
 
 .App-navigation {
