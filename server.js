@@ -125,15 +125,17 @@ app.put('/api/mongodb/:collectionName/', (request, response) => {
 
 
 // D in CRUD, delete a single item with given criteria
-app.delete('/api/mongodb/:collectionName/', (request, response) => {
+app.delete('/api/mongodb/:collectionName/:id', (request, response) => {
   const collectionName = request.params.collectionName;
-  const query = request.query;
+  const obj_id = ObjectId(request.params.id);
+  // const query = request.query;
 
   // Due to a requirement of MongoDB, whenever we query based on _id field, we
   // have to do it like this using ObjectId
-  if (query._id) {
-    query._id = ObjectId(query._id);
-  }
+  // if (query._id) {
+  //   query._id = ObjectId(query._id);
+  // }
+  var query = { _id: obj_id };
 
   db.collection(collectionName)
     .deleteOne(query, (err, results) => {
