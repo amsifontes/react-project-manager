@@ -67,120 +67,142 @@ class Dashboard extends Component {
     },
     projects: [],
   }
+
   onChangeProject = (ev) => {
-    console.log(ev.target.value);
     let value = ev.target.value;
     var tempProject = this.state.tempProject;
     tempProject.projectName = value;
     this.setState({
       tempProject,
    });
-   console.log('state object:', this.state.tempProject)
   }
 
   onChangeStart1 = (ev) => {
-    console.log(ev.target.value)
     let value = ev.target.value;
     let tempPhase = this.state.tempProject.phases[0]
     tempPhase.phaseStart = value;
-    console.log('tempPhaseEnd:', tempPhase);
     this.setState({
       tempPhase,
     });
-    console.log('state object:', this.state.tempProject.phases[0].phaseStart)
   }
 
   onChangeEnd1 = (ev) => {
-    console.log(ev.target.value)
     let value = ev.target.value;
     let tempPhase = this.state.tempProject.phases[0]
     tempPhase.phaseEnd = value;
-    console.log('tempPhaseEnd:', tempPhase);
     this.setState({
       tempPhase,
     });
-    console.log('state object:', this.state.tempProject.phases[0].phaseEnd)
   }
 
   onChangeStart2 = (ev) => {
-    console.log(ev.target.value)
     let value = ev.target.value;
     let tempPhase = this.state.tempProject.phases[1]
     tempPhase.phaseStart = value;
-    console.log('tempPhaseEnd:', tempPhase);
     this.setState({
       tempPhase,
     });
-    console.log('state object:', this.state.tempProject.phases[1].phaseStart)
   }
 
   onChangeEnd2 = (ev) => {
-    console.log(ev.target.value)
     let value = ev.target.value;
     let tempPhase = this.state.tempProject.phases[1]
     tempPhase.phaseEnd = value;
-    console.log('tempPhaseEnd:', tempPhase);
     this.setState({
       tempPhase,
     });
-    console.log('state object:', this.state.tempProject.phases[1].phaseEnd)
   }
 
   onChangeStart3 = (ev) => {
-    console.log(ev.target.value)
     let value = ev.target.value;
     let tempPhase = this.state.tempProject.phases[2]
     tempPhase.phaseStart = value;
-    console.log('tempPhaseEnd:', tempPhase);
     this.setState({
       tempPhase,
     });
-    console.log('state object:', this.state.tempProject.phases[2].phaseStart)
   }
 
   onChangeEnd3 = (ev) => {
-    console.log(ev.target.value)
     let value = ev.target.value;
     let tempPhase = this.state.tempProject.phases[2]
     tempPhase.phaseEnd = value;
-    console.log('tempPhaseEnd:', tempPhase);
     this.setState({
       tempPhase,
     });
-    console.log('state object:', this.state.tempProject.phases[2].phaseEnd)
   }
 
   onChangeStart4 = (ev) => {
-    console.log(ev.target.value)
     let value = ev.target.value;
     let tempPhase = this.state.tempProject.phases[3]
     tempPhase.phaseStart = value;
-    console.log('tempPhaseEnd:', tempPhase);
     this.setState({
       tempPhase,
     });
-    console.log('state object:', this.state.tempProject.phases[3].phaseStart)
   }
 
   onChangeEnd4 = (ev) => {
-    console.log(ev.target.value)
     let value = ev.target.value;
     let tempPhase = this.state.tempProject.phases[3]
     tempPhase.phaseEnd = value;
-    console.log('tempPhaseEnd:', tempPhase);
     this.setState({
       tempPhase,
     });
-    console.log('state object:', this.state.tempProject.phases[3].phaseEnd)
+  }
+
+  getAll = () => {
+    fetch('/api/mongodb/ProjectDetails/', {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Got this back on GET', data);
+      this.setState({
+        projects: data
+      })
+    });
+  }
+
+  componentWillMount(){
+    this.getAll();
+  }
+
+  onDelete(id){
+    console.log("onDelete triggered with ", {id})
+    const delete_id = id;
+    console.log("delete_id ", {delete_id});
+    // delete one
+    fetch(`/api/mongodb/ProjectDetails/${delete_id}`, {
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'},
+    })
+    // .then(ret => console.log(ret))
+    .then(response => response.json())
+    .then(data => {
+      console.log('Got this back on DELETE', data);
+      // this.setState({
+      //   projects: data
+      // })
+    })
+    .then(setTimeout(this.getAll(), 1000));
+
+    // Get all in DB
+    // fetch('/api/mongodb/ProjectDetails/', {
+    //   method: 'GET',
+    //   headers: {'Content-Type': 'application/json'},
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log('Got this back on GET', data);
+    //   this.setState({
+    //     projects: data
+    //   })
+    // });
+    // setTimeout(this.getAll(), 1000);
   }
 
   submit = () => {
     let tempProjectObject = JSON.parse(JSON.stringify(this.state.tempProject));
-    this.state.projects.push(tempProjectObject);
-    const formData = {
-      projects: this.state.projects,
-    };
-    // console.log('Sending:', formData);
 
     this.setState({
       tempProject: this.state.baseState,
@@ -188,31 +210,15 @@ class Dashboard extends Component {
     fetch('/api/mongodb/ProjectDetails/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        // body: JSON.stringify(formData),
         body: JSON.stringify(tempProjectObject),
       })
       .then(response => response.json())
       .then(data => {
         console.log('Got this back on POST', data);
-
-        // Redirect?
-        this.props.history.push('/dashboard/');
-      });
-
-    fetch('/api/mongodb/ProjectDetails/', {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-        // body: JSON.stringify(formData),
       })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Got this back on GET', data);
-        this.setState({
-          projects: data
-        })
-        // Redirect?
-        // this.props.history.push('/dashboard/');
-      });
+      .then(setTimeout(this.getAll(), 1000));
+
+    // setTimeout(this.getAll(), 2000);
   };
 
 
@@ -227,6 +233,8 @@ class Dashboard extends Component {
           {
             this.state.projects.map((project, index) => (
               <div className="project">
+                <div onClick={() => this.onDelete(project._id)}
+                  style={{marginRight: '5px', display: 'inline-block', color: 'red'}}>X </div>
                 <div key={index}
                   className="projectName"
                   style={{display: 'inline-block', width: '250px'}}>
@@ -237,11 +245,8 @@ class Dashboard extends Component {
                 </div>
                 {
                   project.phases.map((phase, index) => {
-                    console.log('index:', index);
                     let duration = phase.phaseEnd - phase.phaseStart;
-                    console.log('duration:', duration);
                     const width = (duration * 15).toString() + 'px';
-                    console.log('width:', width);
                     const color = phase.phaseColor;
                     if (index === 0) {
                       const start = (phase.phaseStart * 15) + 'px';
@@ -259,7 +264,6 @@ class Dashboard extends Component {
                       )
                     } else {
                       const start = phase.phaseStart - project.phases[index-1].phaseEnd;
-                      console.log('else clause invoked, start:', start)
                     return(
                       <div className="phase"
                         style={{
@@ -280,22 +284,6 @@ class Dashboard extends Component {
           }
         </div>
 
-        {/* <div>
-          {
-            Object.keys(templates).map(template_name => {
-              return (
-                <div>
-                  <div>{template_name}</div>
-                  {
-                    templates[template_name].items.map(item => {
-                      return(<div>{item}</div>)
-                    })
-                  }
-                </div>
-              )
-            })
-          }
-        </div> */}
 
         <div className="gantt">
           <div className="toprow">
