@@ -286,38 +286,8 @@ class Dashboard extends Component {
 
 
         <div className="gantt">
-          <div className="toprow">
-          </div>
-          <div className="project">
-            <div className="projectName" style={{display: 'inline-block', width: '250px'}}> Project 1 Name</div>
-            <span className="phases">
-              <div className="phase" style={{backgroundColor: '#e12726', width: '120px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#505cfd', width: '90px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#007bff', width: '75px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#ffc107', width: '105px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-            </span>
-          </div>
 
-
-          <div className="project">
-            <div className="projectName" style={{display: 'inline-block', width: '250px'}}> Project 2 Name</div>
-            <span className="phases">
-              <div className="phase" style={{backgroundColor: '#e12726', width: '100px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#505cfd', width: '100px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#007bff', width: '95px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#ffc107', width: '125px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-            </span>
-          </div>
-
-          <div className="project">
-            <div className="projectName" style={{display: 'inline-block', width: '250px'}}> Project 3 Name</div>
-            <span className="phases">
-              <div className="phase" style={{backgroundColor: '#e12726', width: '80px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#505cfd', width: '70px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#007bff', width: '55px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-              <div className="phase" style={{backgroundColor: '#ffc107', width: '95px', height: '15px', display: 'inline-block', margin: '2px', borderRadius: '8px'}}> </div>
-            </span>
-          </div>
+        
         </div>
 
 
